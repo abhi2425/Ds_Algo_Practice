@@ -5,7 +5,7 @@ class Node {
       this.prev = null
    }
 }
-class DoublyLinkedList {
+module.exports = class DoublyLinkedList {
    constructor() {
       this.head = null
       this.tail = null

@@ -5,7 +5,7 @@ class Node {
    }
 }
 
-class SinglyLinkedList {
+module.exports = class SinglyLinkedList {
    constructor() {
       this.head = null
       this.tail = null
@@ -24,13 +24,13 @@ class SinglyLinkedList {
       this.length++
       return this
    }
-   // traverse() {
-   //     let current = this.head;
-   //     while (current) {
-   //         console.log(current);
-   //         current = current.next;
-   //     }
-   // }
+   traverse() {
+      let current = this.head
+      while (current) {
+         console.log(current)
+         current = current.next
+      }
+   }
    pop() {
       //O(N)
       let previous = null
@@ -141,28 +141,35 @@ class SinglyLinkedList {
       this.length--
       return current.value
    }
-   reverse() {}
+   reverse() {
+      let currentNode = this.head
+      ;[this.head, this.tail] = [this.tail, this.head]
+      let prev = null,
+         next
+      for (let i = 0; i < this.length; i++) {
+         next = currentNode.next
+         currentNode.next = prev
+         prev = currentNode
+         currentNode = next
+      }
+      return this
+   }
+   toArray() {
+      let current = this.head
+      let listArray = []
+      for (let i = 0; i < this.length; i++) {
+         listArray.push(current.value)
+         current = current.next
+      }
+      return listArray
+   }
 }
 
 let list = new SinglyLinkedList()
 list.push('HELLO')
 list.push('Morning')
 list.push('Noon')
-console.table(list)
-console.table(list.get(2))
-
-console.table(list.insert(2, 'Chicken'))
-console.table(list.remove(2))
-console.table(list.get(2))
-console.table(list)
-console.table(list.set(2, 'Night'))
-console.table(list.get(0))
-console.table(list.get(1))
-console.table(list.get(2))
-console.table(list.get(3))
-console.table(list.insert(1, 'Morning'))
-console.table(list.get(0))
-console.table(list.get(1))
-console.table(list.get(2))
-console.table(list.get(3))
-console.table(list.get(4))
+list.push('Night')
+console.table(list.toArray())
+list.reverse()
+console.log(list.toArray())
