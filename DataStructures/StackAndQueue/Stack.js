@@ -51,3 +51,5 @@ stack.push({ name: 'Abhinav' })
 stack.push(35)
 console.log(stack.getBottom(), stack.pop(), stack.getTop(), stack.pop(), stack.pop(), stack.pop())
 console.log(stack.toArray(), stack)
+
+module.exports = Stack

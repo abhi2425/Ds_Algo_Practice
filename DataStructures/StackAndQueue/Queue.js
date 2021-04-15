@@ -44,7 +44,6 @@ class Queue {
       return qArray
    }
 }
-module.exports = Queue
 const q = new Queue()
 
 console.log(q.dequeue())
@@ -52,3 +51,5 @@ q.enqueue('hello')
 q.enqueue('world')
 console.log(q.enqueue('test'))
 console.log(q.dequeue(), q.toArray(), q.size)
+
+module.exports = Queue

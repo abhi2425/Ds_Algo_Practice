@@ -129,3 +129,5 @@ tree.insert(9)
 console.log(tree)
 console.log(tree.contains(99), tree.find(8))
 console.log(tree.BreadthFirstSearch())
+
+module.exports = BinarySearchTree

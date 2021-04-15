@@ -5,7 +5,7 @@ class Node {
    }
 }
 
-module.exports = class SinglyLinkedList {
+class SinglyLinkedList {
    constructor() {
       this.head = null
       this.tail = null
@@ -173,3 +173,5 @@ list.push('Night')
 console.table(list.toArray())
 list.reverse()
 console.log(list.toArray())
+
+module.exports = SinglyLinkedList
