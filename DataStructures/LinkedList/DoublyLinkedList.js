@@ -126,6 +126,27 @@ class DoublyLinkedList {
       this.length--
       return current
    }
+   reverse() {
+      let current = this.head,
+         temp
+      for (let index = 0; index < this.length; index++) {
+         temp = current.prev
+         current.prev = current.next
+         current.next = temp
+         current = current.prev
+      }
+      this.head = temp !== null ? temp.prev : this.head
+      return this
+   }
+   toArray() {
+      let current = this.head
+      let listArray = []
+      for (let i = 0; i < this.length; i++) {
+         listArray.push(current.value)
+         current = current.next
+      }
+      return listArray
+   }
 }
 let list = new DoublyLinkedList()
 
@@ -133,16 +154,10 @@ list.push('hello')
 list.push('Boy')
 list.push('how')
 list.push('are u')
-console.table(list.unShift('MORNING'))
-console.table(list)
-console.table(list.get(2))
-console.table(list.insert(3, 'WHAT'))
-console.table(list.get(3))
-console.table(list.remove(1))
-console.table(list.get(1))
-console.table(list.get(2))
-console.table(list.get(3))
-console.table(list.get(4))
-console.table(list.get(5))
+list.unShift('MORNING')
+list.insert(3, 'WHAT')
+console.table(list.toArray())
+list.reverse()
+console.log(list.toArray(), list.get(0), list.get(5))
 
 module.exports = DoublyLinkedList

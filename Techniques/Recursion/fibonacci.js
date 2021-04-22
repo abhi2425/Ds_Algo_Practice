@@ -5,12 +5,23 @@ const fibonacciGenerator = (firstInput, secondInput, length) => {
    for (let i = 0; i < length - 2; i++) {
       series = series.concat(series[i] + series[i + 1])
    }
-   return series
+   return series[length - 1]
 }
-console.log(fibonacciGenerator(0, 1, 10))
+
+console.time('timer-1')
+console.log(fibonacciGenerator(1, 1, 40))
+console.timeEnd('timer-1')
 
 //recursive way
-const fibonacciGeneratorRecursive = (firstInput, secondInput, length) => {
-   let series = [firstInput, secondInput]
-   const helperFunction = () => {}
+//O(2^n)
+const fib = (n) => {
+   if (n <= 2) return 1
+   return fib(n - 1) + fib(n - 2)
 }
+console.log(fib(6))
+console.log(fib(7))
+console.log(fib(8))
+
+console.time('timer-2')
+console.log(fib(40))
+console.timeEnd('timer-2')
