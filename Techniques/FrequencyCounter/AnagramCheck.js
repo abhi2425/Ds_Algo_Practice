@@ -5,12 +5,10 @@ const anagramCheck = (string1, string2) => {
    let counter1 = {},
       counter2 = {}
    if (array1.length !== array2.length) return false
-   for (const letter of array1) {
-      counter1[letter] = (counter1[letter] || 0) + 1
-   }
-   for (const letter of array2) {
-      counter2[letter] = (counter2[letter] || 0) + 1
-   }
+   for (const letter of array1) counter1[letter] = (counter1[letter] || 0) + 1
+
+   for (const letter of array2) counter2[letter] = (counter2[letter] || 0) + 1
+
    for (key in counter1) {
       if (!(key in counter2)) return false
       if (counter1[key] !== counter2[key]) return false

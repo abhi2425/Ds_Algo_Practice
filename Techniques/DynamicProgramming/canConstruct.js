@@ -49,26 +49,3 @@ console.log(
    canConstruct_new('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef', ['e', 'ee', 'eeee', 'eeeee']),
 )
 console.timeEnd('timer-2')
-
-// iterative way using Tabulation method
-
-const canConstruct_Tabulation = (targetString, wordBank) => {
-   const table = Array(targetString.length + 1).fill(false)
-   table[0] = true
-
-   console.log(table)
-}
-
-console.time('timer-3')
-console.log(canConstruct_Tabulation('abcdef', ['ab', 'abc', 'cd', 'def', 'abcd']))
-console.log(canConstruct_Tabulation('skateboard', ['ska', 'ate', 'bora', 'd', 'rd', 'sk']))
-console.log(canConstruct_Tabulation('enterapotentpot', ['a', 'p', 'ent', 'enter', 'ot', 'o', 't']))
-console.log(
-   canConstruct_Tabulation('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef', [
-      'e',
-      'ee',
-      'eeee',
-      'eeeee',
-   ]),
-)
-console.timeEnd('timer-3')
