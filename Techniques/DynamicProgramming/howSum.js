@@ -25,7 +25,7 @@ const howSum_new = (targetSum, numbers, memo = {}) => {
 
    for (let num of numbers) {
       let remainder = targetSum - num
-      const combination = howSum(remainder, numbers)
+      const combination = howSum_new(remainder, numbers, memo)
       if (combination !== null) {
          memo[targetSum] = [...combination, num]
          return memo[targetSum]
